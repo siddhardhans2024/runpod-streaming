@@ -1,8 +1,8 @@
 import runpod
-import asyncio
+import time
 
 
-async def async_generator_handler(job):
+def async_generator_handler(job):
     input = job["input"]
     count = input["n"]
     for i in range(count):
@@ -11,7 +11,7 @@ async def async_generator_handler(job):
         yield output
 
         # Simulate an asynchronous task, such as processing time for a large language model
-        await asyncio.sleep(1)
+        time.sleep(1)
 
 
 # Configure and start the RunPod serverless function
